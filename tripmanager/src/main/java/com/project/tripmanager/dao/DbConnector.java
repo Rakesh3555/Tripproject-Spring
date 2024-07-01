@@ -11,8 +11,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class DbConnector {
 	@Bean
     public DataSource dataSource() {
-        // Configure your DataSource implementation here
-        // Example: DriverManagerDataSource, BasicDataSource, etc.
+        
         return new DriverManagerDataSource("jdbc:mysql://localhost:3308/rgexplorer", "root", "root");
     }
 
