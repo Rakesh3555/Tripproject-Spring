@@ -24,4 +24,33 @@ public class DataBaseManager {
         String updateVerified = "UPDATE UserCredentials SET verification = 'Verified' WHERE username = ?";
         jdbcTemplate.update(updateVerified, username);
     }
+    
+//    public void malasiyaTripFamilyPackage(String username , String phoneNumber) {
+//    	
+//    	String malFamPackage = "insert into userTripDetails(username , mobileNumber , Package ,Destination, Package_Type ) values ('"+username+"' , '"+phoneNumber+"' , 'International Trip' , ' Malaysia ', 'Family Package');";
+//    	jdbcTemplate.update(malFamPackage);
+//    }
+//    
+//    public void malasiyaTripFriendsPackage(String username , String phoneNumber) {
+//    	
+//    	String malFriPackage = "insert into userTripDetails(username , mobileNumber , Package ,Destination, Package_Type ) values ('"+username+"' , '"+phoneNumber+"' , 'International Trip' , ' Malaysia ', 'Friends Package');";
+//    	jdbcTemplate.update(malFriPackage);
+//    }
+//    
+//    public void malasiyaTripGroupPackage() {
+//    	
+//    }
+    
+    public void malasiyaTripPackage(String username , String phoneNumber , String packageName) {
+    	
+    	String malFriPackage = "insert into userTripDetails(username , mobileNumber , Package ,Destination, Package_Type ) values ('"+username+"' , '"+phoneNumber+"' , 'International Trip' , ' Malaysia ', '"+packageName+"');";
+    	jdbcTemplate.update(malFriPackage);
+    }
+    
+//    public String bookingTitleUpdater(String phoneNumber) {
+//    	
+//    	String bookingTitleUpdater = "select Package_Type from userTripDetails where mobileNumber = ?";
+//    	return jdbcTemplate.queryForObject(bookingTitleUpdater,String.class,phoneNumber);
+//    	
+//    }
 }

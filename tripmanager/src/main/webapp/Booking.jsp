@@ -47,15 +47,14 @@
 </style>
 </head>
 <body>
-<% HttpSession sessio = request.getSession();
+<% 
 
-	String tripName = (String) sessio.getAttribute("TripType");
-   System.out.println("tripName + " + tripName);
+	String packageName = (String) session.getAttribute("packageName");
 %>
 <div id="loginModal" class="modal">
   <div class="modal-content">
-      <form id="bookingMala" action="BookingServlet" method="post">
-          <h2 style="text-align: center;"> <%= tripName %> </h2>
+      <form id="bookingMala" action="Booking" method="post">
+          <h2 style="text-align: center;"> <%= packageName %> </h2>
           <label for="fromDate">From Date :</label>
           <input type="date" id="from_Date" name="fromDate" min="2024-07-01" required>
           <label for="toDate">To Date :</label>

@@ -70,8 +70,8 @@ public class MyController {
         userCredentials.setGeneraterOtp(String.valueOf(generateOTP));
         
         Mail mailGeneration = new Mail();
-        
         mailGeneration.setupServerProperties();
+        
         MimeMessage message = mailGeneration.draftEmail(mail,userCredentials.getGeneraterOtp());
         mailGeneration.sendEmail(message);
         session.setAttribute("otp", generateOTP);
@@ -80,12 +80,11 @@ public class MyController {
     }
 
     @PostMapping("/ValidateOtp")
-    public String validateOtp(HttpSession session,
-                              @RequestParam("username") String username,
-                              @RequestParam("otp") String otp) {
+    public String validateOtp(HttpSession session , @RequestParam("valOtp") String valOtp) {
         String generatedOTP = String.valueOf(session.getAttribute("otp"));
-
-        if (generatedOTP.equals(otp)) {
+        String username = (String) session.getAttribute("username");
+        session.getAttribute(valOtp);
+        if (generatedOTP.equals(valOtp)) {
             try {
             	DataBaseManager.updateVerificationStatus(username);
             } catch (Exception e) {
@@ -98,5 +97,39 @@ public class MyController {
         }
 
         return "HomeWprofile.jsp"; 
+    }
+    
+    @PostMapping("/MalaysiaPackage")
+    public String malasiyaTripFamilyPackage(HttpSession session, @RequestParam("action") String packageType ) {
+    	
+    	String username = (String) session.getAttribute("username");
+    	String mobileNumber = (String) session.getAttribute("mobileNumber");
+    	
+    	if(packageType.equals("familypackage")) {
+    		String packageName = "Family Package";
+    		session.setAttribute("packageName", packageName);
+    		DataBaseManager.malasiyaTripPackage(username, mobileNumber, packageName);
+    		System.out.println(packageName);
+    	}else if(packageType.equals("friendspackage")) {
+    		String packageName = "Friends Package";
+    		session.setAttribute("packageName", packageName);
+    		DataBaseManager.malasiyaTripPackage(username, mobileNumber, packageName);
+    		System.out.println(packageName);
+    	}else if(packageType.equals("groupPackage")) {
+    		String packageName = "Group Package";
+    		session.setAttribute("packageName", packageName);
+    		DataBaseManager.malasiyaTripPackage(username, mobileNumber, packageName);
+    		System.out.println(packageName);	
+    	}
+		return "Booking.jsp";
+    }
+    
+    @PostMapping("/Booking")
+    public String booking (HttpSession session) {
+    	
+    	String username = (String) session.getAttribute("username");
+    	
+		return "AddTravellers.jsp";
+    	
     }
 }

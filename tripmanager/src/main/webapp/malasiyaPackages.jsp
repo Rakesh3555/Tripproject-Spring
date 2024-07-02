@@ -33,7 +33,7 @@
             <div class="card__data">
                <span class="card__description" style="text-align: center;color: greenyellow;">FAMILY PACKAGE</span>
                <h2 class="card__title" style="text-align: center;">Sutable for travellers with kids</h2>
-               <form action="MalaysiaPackageServlet" method="post">
+               <form action="MalaysiaPackage" method="post">
                   <input type="hidden" name="action" value="familypackage">
                   <!-- <a href="" class="card__button" style="text-align: center; text-decoration: none;color: rgb(0, 128, 81);">ENQUIRE</a> -->
                		<input class="card__button" style="text-align: center; border:none; background-color:white; text-decoration: none;color: rgb(0, 128, 81);" type="submit" value="ENQUIRE" >
@@ -47,8 +47,8 @@
             <div class="card__data">
                <span class="card__description" style="text-align: center; color: rgb(237, 118, 75);">FRIENDS PACKAGE</span>
                <h2 class="card__title" style="text-align: center;">Sutable for friends and couples</h2>
-               <form action="MalaysiaPackageServlet" method="post">
-                  <input type="hidden" name="action" value="frindspackage">
+               <form action="MalaysiaPackage" method="post">
+                  <input type="hidden" name="action" value="friendspackage">
                   <!-- <a href="" class="card__button" style="text-align: center;color: rgb(57, 223, 167);text-decoration: none;">ENQUIRE</a> -->
                   <input class="card__button" style="text-align: center;color: rgb(57, 223, 167);text-decoration: none; border:none;background-color: white;" type="submit" value="ENQUIRE">
                </form>
@@ -62,7 +62,7 @@
             <div class="card__data">
                <span class="card__description" style="text-align: center;color: rgba(0, 0, 0, 0.297);">GROUP PACKAGE</span>
                <h2 class="card__title" style="text-align: center;">Sutable for group of travellers</h2>
-               <form action="MalaysiaPackageServlet" method="post">
+               <form action="MalaysiaPackage" method="post">
                   <input type="hidden" name="action" value="groupPackage">
                   <!-- <a href="" class="card__button" style="text-align: center;color: purple;text-decoration: none">ENQUIRE</a> -->
                   <input class="card__button" style="text-align: center;color: purple;text-decoration: none ; border: none ; background-color: white;" type="submit" value="ENQUIRE">
