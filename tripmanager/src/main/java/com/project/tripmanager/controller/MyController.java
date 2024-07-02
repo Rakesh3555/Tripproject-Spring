@@ -2,8 +2,7 @@ package com.project.tripmanager.controller;
 
 import com.project.tripmanager.dao.DataBaseManager;
 import com.project.tripmanager.dao.Mail;
-import com.project.tripmanager.model.UserCredentials;
-
+import com.project.tripmanager.model.User;
 import javax.mail.internet.MimeMessage;
 import jakarta.servlet.http.HttpSession;
 
@@ -33,9 +32,9 @@ public class MyController {
     @PostMapping("/UserValidation")
     public String userLogin(@RequestParam("username") String username,
                             @RequestParam("password") String password) {
-        UserCredentials ucp = new UserCredentials();
-        ucp.setUsername(username);
-        ucp.setPassword(password);
+        User userCredentials = new User();
+        userCredentials.setUsername(username);
+        userCredentials.setPassword(password);
 
        
 
@@ -55,7 +54,7 @@ public class MyController {
         session.setAttribute("mail", mail);
         session.setAttribute("mobileNumber", mobileNumber);
 
-        UserCredentials userCredentials = new UserCredentials();
+        User userCredentials = new User();
         
         userCredentials.setUsername(username);
         userCredentials.setPassword(password);
@@ -124,12 +123,12 @@ public class MyController {
 		return "Booking.jsp";
     }
     
-    @PostMapping("/Booking")
-    public String booking (HttpSession session) {
-    	
-    	String username = (String) session.getAttribute("username");
-    	
-		return "AddTravellers.jsp";
-    	
-    }
+//    @PostMapping("/Booking")
+//    public String booking (HttpSession session) {
+//    	
+//    	String username = (String) session.getAttribute("username");
+//    	
+//		return "AddTravellers.jsp";
+//    	
+//    }
 }
