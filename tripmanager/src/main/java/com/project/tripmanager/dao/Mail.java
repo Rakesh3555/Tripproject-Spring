@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Mail {
-    Session newSession = null;
+    Session newSession ;
 
     public void sendEmail(MimeMessage message) throws MessagingException {
         String fromUser = "rgexplorer24@gmail.com";
@@ -27,7 +27,7 @@ public class Mail {
         transport.close();
     }
 
-    public MimeMessage draftEmail(String email, String otp) throws MessagingException {
+    public MimeMessage draftEmail(String mail, String otp) throws MessagingException {
         newSession = setupServerProperties();
         MimeMessage message = new MimeMessage(newSession);
 
@@ -35,7 +35,7 @@ public class Mail {
         String emailBody = otp + " is your OTP for RGexplorer registration. Please don't share your OTP.";
 
         
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail));
 
 
         message.setSubject(emailSubject);

@@ -20,7 +20,7 @@ import javax.mail.MessagingException;
 public class MyController {
 
     @Autowired
-    public DataBaseManager db;
+    public DataBaseManager DataBaseManager;
 
     @Autowired
     public Mail mailService;
@@ -62,8 +62,8 @@ public class MyController {
         userCredentials.setMail(mail);
         userCredentials.setMobileNumber(mobileNumber);
         
-        DataBaseManager dataBaseManager = new DataBaseManager();
-        dataBaseManager.registerUser(username, mail, mobileNumber, password);
+       
+        DataBaseManager.registerUser(username, mail, mobileNumber, password);
         
         int generateOTP = (int) ((Math.random()*(999999 - 100000))+100000);
         
@@ -87,7 +87,7 @@ public class MyController {
 
         if (generatedOTP.equals(otp)) {
             try {
-                db.updateVerificationStatus(username);
+            	DataBaseManager.updateVerificationStatus(username);
             } catch (Exception e) {
                 
                 e.printStackTrace();

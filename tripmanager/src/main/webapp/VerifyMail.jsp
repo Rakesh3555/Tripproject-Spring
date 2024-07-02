@@ -51,7 +51,7 @@ form button {
 	<% HttpSession sessio = request.getSession();
 int opt=(int)request.getAttribute("otp");
 	
-		String mail = (String) sessio.getAttribute("email");
+		String mail = (String) sessio.getAttribute("mail");
 	%>
 
 </html>
