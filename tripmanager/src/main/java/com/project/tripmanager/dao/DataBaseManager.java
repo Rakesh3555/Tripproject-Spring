@@ -43,8 +43,8 @@ public class DataBaseManager {
     
     public void malasiyaTripPackage(String username , String phoneNumber , String packageName) {
     	
-    	String malFriPackage = "insert into userTripDetails(username , mobileNumber , Package ,Destination, Package_Type ) values ('"+username+"' , '"+phoneNumber+"' , 'International Trip' , ' Malaysia ', '"+packageName+"');";
-    	jdbcTemplate.update(malFriPackage);
+    	String malasiyaTripPackageUpdater = "insert into userTripDetails(username , mobileNumber , Package ,Destination, Package_Type ) values ('"+username+"' , '"+phoneNumber+"' , 'International Trip' , ' Malaysia ', '"+packageName+"');";
+    	jdbcTemplate.update(malasiyaTripPackageUpdater);
     }
     
 //    public String bookingTitleUpdater(String phoneNumber) {
@@ -53,4 +53,18 @@ public class DataBaseManager {
 //    	return jdbcTemplate.queryForObject(bookingTitleUpdater,String.class,phoneNumber);
 //    	
 //    }
+    
+    public String retriveDestination(String username) {
+    	
+    	String Destination = "select Destination from userTripDetails where username = '?'";
+    	
+    	return jdbcTemplate.queryForObject(Destination,String.class,username);
+    }
+    
+    public void addTravellers(String username , String mobileNumber , String travelerName , String travelerAge , String travelerGender , String destination) {
+    	
+        String addTravellerInfo = "INSERT INTO travellerinformantion (username, mobilenumber, Destination, Travellers, Gender, Age) VALUES ('"+username+"','"+mobileNumber+"','"+destination+"','"+travelerName+"','"+travelerGender+"','"+travelerAge+"');";
+        jdbcTemplate.update(addTravellerInfo);                    
+
+    }
 }
